@@ -14,3 +14,5 @@ String Calculator TDD Kata
 4) Allow new line delimited string instead of commas
 5) Support different delimiters, regardless of length, defined on the first line of the string prefixed with "//", 
   example "//;/n1;2" would return 3
+6) If the string contains a negative number, throw an exception, the exception should contain 
+  'negatives not allowed' and _all_ of the negative numbers in the message

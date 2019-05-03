@@ -3,7 +3,7 @@ package com.dfischer;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class StringCalculatorTest {
     private StringCalculator calculator;
@@ -40,5 +40,18 @@ public class StringCalculatorTest {
         assertEquals(2, calculator.add("//;/n1;1"));
         assertEquals(3, calculator.add("//;/n1;2"));
         assertEquals(6, calculator.add("//----/n1----2----3"));
+    }
+
+    @Test
+    public void negativeNumbersThrowException() {
+        try {
+            calculator.add("-2,-1,3");
+            fail("Negative numbers should through an exception");
+        } catch (Exception e) {
+            assertTrue(e.getMessage().toLowerCase().contains("negatives not allowed"));
+            assertTrue(e.getMessage().contains("-1"));
+            assertTrue(e.getMessage().contains("-2"));
+            assertFalse(e.getMessage().contains("3"));
+        }
     }
 }

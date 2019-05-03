@@ -1,6 +1,8 @@
 package com.dfischer;
 
+import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class StringCalculator {
     public int add(String numbers) {
@@ -24,10 +26,25 @@ public class StringCalculator {
         return Integer.MIN_VALUE;
     }
 
-    public int splitAndSumNumbersOnDelimiter(String numbers, String delim) {
+    private int splitAndSumNumbersOnDelimiter(String numbers, String delim) {
+        this.validate(numbers, delim);
+
         return Pattern.compile(delim)
             .splitAsStream(numbers)
             .mapToInt(Integer::parseInt)
             .sum();
+    }
+
+    private void validate(String numbers, String delim) {
+        List<Integer> negativeNumbers = Pattern.compile(delim)
+            .splitAsStream(numbers)
+            .mapToInt(Integer::parseInt)
+            .filter(value -> value < 0)
+            .boxed()
+            .collect(Collectors.toList());
+
+        if (negativeNumbers.size() > 0) {
+            throw new IllegalArgumentException("Negatives not allowed: " + negativeNumbers.toString());
+        }
     }
 }
