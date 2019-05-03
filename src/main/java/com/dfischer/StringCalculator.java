@@ -9,12 +9,20 @@ public class StringCalculator {
         }
 
         if (numbers.contains(",")) {
-            return Pattern.compile(",")
-                .splitAsStream(numbers)
-                .mapToInt(Integer::parseInt)
-                .sum();
+            return this.splitAndSumNumbersOnDelimiter(numbers, ",");
+        }
+
+        if (numbers.contains("/n")) {
+            return this.splitAndSumNumbersOnDelimiter(numbers, "/n");
         }
 
         return Integer.MIN_VALUE;
+    }
+
+    public int splitAndSumNumbersOnDelimiter(String numbers, String delim) {
+        return Pattern.compile(delim)
+            .splitAsStream(numbers)
+            .mapToInt(Integer::parseInt)
+            .sum();
     }
 }

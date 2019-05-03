@@ -26,4 +26,12 @@ public class StringCalculatorTest {
         assertEquals(5, calculator.add("1,2,1,1"));
         assertEquals(10, calculator.add("2,3,1,1,1,1,1"));
     }
+
+    @Test
+    public void multipleNewLineDelimitedNumbersInStringReturnsSum() {
+        assertEquals(2, calculator.add("1/n1"));
+        assertEquals(5, calculator.add("2/n3"));
+        assertEquals(5, calculator.add("1/n2/n1/n1"));
+        assertEquals(10, calculator.add("2/n3/n1/n1/n1/n1/n1"));
+    }
 }
