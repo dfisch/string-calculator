@@ -54,4 +54,10 @@ public class StringCalculatorTest {
             assertFalse(e.getMessage().contains("3"));
         }
     }
+
+    @Test
+    public void numbersBiggerThan1000AreIgnored() {
+        assertEquals(3, calculator.add("1,1001,2"));
+        assertEquals(1003, calculator.add("1,1000,1001,2"));
+    }
 }

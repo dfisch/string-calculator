@@ -32,6 +32,7 @@ public class StringCalculator {
         return Pattern.compile(delim)
             .splitAsStream(numbers)
             .mapToInt(Integer::parseInt)
+            .filter(value -> value <= 1000)
             .sum();
     }
 

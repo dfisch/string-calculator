@@ -16,3 +16,4 @@ String Calculator TDD Kata
   example "//;/n1;2" would return 3
 6) If the string contains a negative number, throw an exception, the exception should contain 
   'negatives not allowed' and _all_ of the negative numbers in the message
+7) Numbers bigger than 1000 should be ignored.  ex. "1,1001,2" returns 3
