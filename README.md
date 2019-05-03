@@ -10,3 +10,4 @@ String Calculator TDD Kata
 
 1) Given a single positive whole number in a string, return the number
 2) Given 2 comma delimited numbers, return the sum
+3) Given multiple comma delimited numbers, return the sum

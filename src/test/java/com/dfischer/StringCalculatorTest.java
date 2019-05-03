@@ -20,8 +20,10 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void twoCommaDelimitedNumbersInStringReturnsSum() {
+    public void multipleCommaDelimitedNumbersInStringReturnsSum() {
         assertEquals(2, calculator.add("1,1"));
         assertEquals(5, calculator.add("2,3"));
+        assertEquals(5, calculator.add("1,2,1,1"));
+        assertEquals(10, calculator.add("2,3,1,1,1,1,1"));
     }
 }

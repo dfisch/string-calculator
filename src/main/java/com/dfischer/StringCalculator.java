@@ -1,5 +1,7 @@
 package com.dfischer;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator {
     public int add(String numbers) {
         if (numbers.matches("[0-9]+")) {
@@ -7,9 +9,10 @@ public class StringCalculator {
         }
 
         if (numbers.contains(",")) {
-            String[] parts = numbers.split(",");
-            return Integer.parseInt(parts[0]) +
-                Integer.parseInt(parts[1]);
+            return Pattern.compile(",")
+                .splitAsStream(numbers)
+                .mapToInt(Integer::parseInt)
+                .sum();
         }
 
         return Integer.MIN_VALUE;
