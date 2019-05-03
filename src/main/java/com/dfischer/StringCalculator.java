@@ -8,6 +8,11 @@ public class StringCalculator {
             return Integer.parseInt(numbers);
         }
 
+        if (numbers.contains("//")) {
+            String[] parts = numbers.split("/n");
+            return this.splitAndSumNumbersOnDelimiter(parts[1], parts[0].substring(2));
+        }
+
         if (numbers.contains(",")) {
             return this.splitAndSumNumbersOnDelimiter(numbers, ",");
         }

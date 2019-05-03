@@ -12,3 +12,5 @@ String Calculator TDD Kata
 2) Given 2 comma delimited numbers, return the sum
 3) Given multiple comma delimited numbers, return the sum
 4) Allow new line delimited string instead of commas
+5) Support different delimiters, regardless of length, defined on the first line of the string prefixed with "//", 
+  example "//;/n1;2" would return 3

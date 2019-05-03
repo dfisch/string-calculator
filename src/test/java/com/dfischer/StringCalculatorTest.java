@@ -34,4 +34,11 @@ public class StringCalculatorTest {
         assertEquals(5, calculator.add("1/n2/n1/n1"));
         assertEquals(10, calculator.add("2/n3/n1/n1/n1/n1/n1"));
     }
+
+    @Test
+    public void multipleCustomDelimitedNumbersInStringReturnsSum() {
+        assertEquals(2, calculator.add("//;/n1;1"));
+        assertEquals(3, calculator.add("//;/n1;2"));
+        assertEquals(6, calculator.add("//----/n1----2----3"));
+    }
 }
