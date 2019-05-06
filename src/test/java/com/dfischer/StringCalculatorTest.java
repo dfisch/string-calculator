@@ -46,7 +46,7 @@ public class StringCalculatorTest {
     public void negativeNumbersThrowException() {
         try {
             calculator.add("-2,-1,3");
-            fail("Negative numbers should through an exception");
+            fail("Negative numbers should throw an exception");
         } catch (Exception e) {
             assertTrue(e.getMessage().toLowerCase().contains("negatives not allowed"));
             assertTrue(e.getMessage().contains("-1"));
